@@ -17,3 +17,4 @@ Right now I'm just experimenting with different concepts for my website. It is p
 
 - Create basic landing page
 - Make nav menu appear when you mouseover over my name and disappear when you mouseout of my name and all nav items
+- Make other nav items disappear when hovering over a single item, then reappear on mouseenter name
