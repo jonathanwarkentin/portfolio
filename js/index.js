@@ -7,12 +7,13 @@ let landingNav = document.getElementById("landing-nav");
 
 var navChildren = [development, video, photo, contact];
 
-name.addEventListener("mouseover", showNavItems);
+name.addEventListener("mouseenter", showNavItems);
 
 function showNavItems() {
   for (i = 0; i < 4; i++) {
-    navChildren[i].style.display = "block";
+    showItem(navChildren[i]);
   }
+  name.addEventListener("mouseenter", refreshItems);
   landingNav.addEventListener("mouseleave", hideNavItems);
   console.log("showNavItems function complete");
 }
@@ -22,4 +23,28 @@ function hideNavItems() {
     navChildren[j].style.display = "none";
   }
   console.log("hideNavItems function complete");
+}
+
+function hideOtherItems(currentItem) {
+  for (k = 0; k < 4; k++) {
+    if (navChildren[k] !== currentItem) {
+      navChildren[k].style.display = "none";
+      console.log("hide " + navChildren[k]);
+    }
+  }
+  console.log("hideOtherItems function complete");
+}
+
+function refreshItems() {
+  for (m = 0; m < 4; m++) {
+    navChildren[m].style.display = "block";
+  }
+  console.log("refreshItems function complete");
+}
+
+function showItem(currentItem) {
+  currentItem.style.display = "block";
+  currentItem.addEventListener("mouseenter", function() {
+    hideOtherItems(currentItem);
+  });
 }
